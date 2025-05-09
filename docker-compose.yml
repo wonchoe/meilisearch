@@ -1,10 +1,12 @@
 services:
   meilisearch:
-    image: getmeili/meilisearch:v1.8
+    image: getmeili/meilisearch:latest
     container_name: meilisearch
     restart: always
     ports:
       - "7700:7700"
+    environment:
+      - MEILI_MASTER_KEY=masterKey123
     volumes:
       - ./meili_data:/meili_data
-    command: ["meilisearch", "--no-auth", "--db-path", "/meili_data", "--http-addr", "0.0.0.0:7700"]
+    command: ["meilisearch", "--db-path", "/meili_data", "--http-addr", "0.0.0.0:7700"]
