@@ -5,8 +5,6 @@ services:
     restart: always
     ports:
       - "7700:7700"
-    environment:
-      - MEILI_MASTER_KEY=masterKey123
     volumes:
       - ./meili_data:/meili_data
-    command: ["meilisearch", "--db-path", "/meili_data", "--http-addr", "0.0.0.0:7700"]
+    command: ["meilisearch", "--no-auth", "--db-path", "/meili_data", "--http-addr", "0.0.0.0:7700"]
