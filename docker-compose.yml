@@ -10,3 +10,8 @@ services:
     volumes:
       - ./meili_data:/meili_data
     command: ["meilisearch", "--db-path", "/meili_data", "--http-addr", "0.0.0.0:7700"]
+    networks:
+      - webnet
+networks:
+  webnet:
+    external: true
